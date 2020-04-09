@@ -1,0 +1,46 @@
+* Disclaimer
+
+The codes in this repository are a result of coding practice which I
+did to be familiar with the basic concept of selenium. I uploaded this
+just to archive it for future reference.
+
+Please try a real service to delete your ancient tweets, unless it is
+your wish to understand browser testing framework, learn about the tweet
+webpage and delete tweets at a rate of 5 tweets per minute.
+
+
+* How to run it
+** requirement
+
+The first thing is to set up a selenium testing environment, the codes
+are hardcode to use firefox, so you need a geckodriver.
+
+Then you need to install the dependencies. Of course, a virtual
+environment is recommended.
+
+You also have to log in to a tweet account for it. The autologin is
+not included. Because of that, the browser =profile= is a must,
+copying an existing one if you don't want to spend time learning about
+the firefox profile.
+
+** script
+
+Creating a =run.py= script to start. There is an example:
+
+#+BEGIN_SRC python
+import logging
+import sys
+
+from kainite.main import main
+
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+
+main(
+    author='th3acc0untname',
+    tweet_archive_fn='tweet/archive/dire/data/tweet.js',
+    fx_profile_dir='/firefox/profile/dir/',
+    rate=10,
+)
+#+END_SRC
+
+
